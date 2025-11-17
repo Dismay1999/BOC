@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Brothers of Charity Services Ireland</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Brothers of Charity Services Ireland is a national organisation supporting people with intellectual disabilities and their families."
+  />
+
+  <style>
+    :root {
+      --primary: #005b8f;
+      --primary-dark: #003f63;
+      --accent: #f6b10a;
+      --bg: #f5f7fb;
+      --bg-alt: #ffffff;
+      --text: #222b3c;
+      --muted: #6c7689;
+      --border: #dde2ef;
+      --radius-lg: 1rem;
+      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover, a:focus-visible { text-decoration: underline; }
+
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 1.25rem; }
+
+    /* Header */
+    .site-header { background: #ffffff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.75rem 0; }
+    .logo-block { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-symbol { width: 44px; height: 44px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #ffffff, var(--primary)); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; color: #ffffff; }
+    .logo-text-main { font-weight: 700; font-size: 1.05rem; }
+    .logo-text-sub { font-size: 0.85rem; color: var(--muted); }
+
+    .main-nav { display: flex; align-items: center; gap: 1.5rem; font-size: 0.95rem; }
+    .main-nav ul { list-style: none; display: flex; gap: 1.25rem; margin: 0; padding: 0; }
+    .main-nav a { color: var(--text); font-weight: 500; }
+    .main-nav a:hover, .main-nav a:focus-visible { color: var(--primary); }
+    .nav-cta { display: flex; align-items: center; gap: 0.75rem; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; border: 1px solid transparent; padding: 0.6rem 1.3rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; text-decoration: none; white-space: nowrap; }
+    .btn-primary { background: var(--primary); color: #ffffff; box-shadow: var(--shadow-soft); }
+    .btn-primary:hover, .btn-primary:focus-visible { background: var(--primary-dark); text-decoration: none; }
+    .btn-outline { background: transparent; color: var(--primary); border-color: var(--primary); }
+    .btn-outline:hover, .btn-outline:focus-visible { background: rgba(0, 91, 143, 0.08); text-decoration: none; }
+
+    .nav-toggle { display: none; border: none; background: transparent; font-size: 1.4rem; cursor: pointer; }
+
+    /* Hero */
+    .hero { padding: 3.5rem 0 3rem; background: linear-gradient(135deg, #e1f0ff, #fdf6e9); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 2.5rem; align-items: center; }
+    .eyebrow { font-size: 0.85rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--primary-dark); font-weight: 700; margin-bottom: 0.5rem; }
+    .hero h1 { font-size: clamp(2rem, 4vw, 2.7rem); margin: 0 0 0.75rem; }
+    .hero p.lead { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.75rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 1.5rem; }
+    .hero-note { font-size: 0.9rem; color: var(--muted); }
+
+    .hero-card { background: #ffffff; border-radius: var(--radius-lg); padding: 1.25rem; box-shadow: var(--shadow-soft); }
+    .hero-card h2 { margin-top: 0; font-size: 1.05rem; }
+    .badge { display: inline-flex; align-items: center; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(0, 91, 143, 0.08); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary-dark); margin-bottom: 0.5rem; }
+    .hero-card-list { list-style: none; padding: 0; margin: 0.75rem 0 0; font-size: 0.9rem; color: var(--muted); }
+    .hero-card-list li + li { margin-top: 0.4rem; }
+
+    /* Sections */
+    section { padding: 3rem 0; }
+    section:nth-of-type(even) { background: var(--bg-alt); }
+    .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 1.75rem; }
+    .section-heading h2 { margin: 0; font-size: 1.6rem; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 0.95rem; max-width: 30rem; }
+
+    .two-column { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 2rem; align-items: flex-start; }
+    .card { background: #ffffff; border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--border); }
+    .card h3 { margin-top: 0; font-size: 1.1rem; }
+
+    /* Regions */
+    .region-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+    .region-card { background: #ffffff; border-radius: var(--radius-lg); padding: 1.2rem 1.25rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 0.35rem; }
+    .region-name { font-weight: 600; }
+    .region-link { font-size: 0.9rem; color: var(--primary); }
+    .region-tagline { font-size: 0.9rem; color: var(--muted); }
+
+    /* Impact */
+    .impact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .impact-item { background: #ffffff; border-radius: var(--radius-lg); padding: 1.25rem; border: 1px solid var(--border); text-align: left; }
+    .impact-number { font-size: 1.6rem; font-weight: 700; color: var(--primary-dark); }
+    .impact-label { font-size: 0.9rem; color: var(--muted); }
+
+    /* Stories & News */
+    .stories-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 1.75rem; align-items: flex-start; }
+    .story-card { background: #ffffff; border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--border); }
+    .story-tag { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--primary-dark); margin-bottom: 0.5rem; }
+    .story-title { margin: 0 0 0.7rem; font-size: 1.15rem; }
+    .story-meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .news-list { list-style: none; padding: 0; margin: 0; font-size: 0.95rem; }
+    .news-list li + li { margin-top: 0.7rem; }
+    .news-meta { display: block; font-size: 0.8rem; color: var(--muted); }
+
+    /* Support */
+    .support-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+    .support-card { background: #ffffff; border-radius: var(--radius-lg); padding: 1.4rem; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 0.6rem; }
+    .support-card p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+
+    /* Footer */
+    .site-footer { background: #0b1020; color: #e8edf9; padding: 2.75rem 0 1.75rem; margin-top: 1rem; }
+    .footer-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) minmax(0, 1.4fr); gap: 2rem; font-size: 0.9rem; }
+    .footer-logo { font-weight: 600; margin-bottom: 0.5rem; }
+    .footer-sub { color: #a8b3d3; font-size: 0.85rem; max-width: 22rem; }
+    .footer-heading { font-weight: 600; margin-bottom: 0.8rem; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li + li { margin-top: 0.45rem; }
+    .footer-links a { color: #e8edf9; text-decoration: none; font-size: 0.9rem; }
+    .footer-links a:hover, .footer-links a:focus-visible { text-decoration: underline; }
+    .footer-bottom { margin-top: 1.75rem; padding-top: 1rem; border-top: 1px solid #252a3c; display: flex; justify-content: space-between; gap: 1rem; font-size: 0.8rem; color: #a8b3d3; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-grid, .two-column, .stories-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero { padding-top: 2.5rem; }
+      .section-heading { flex-direction: column; align-items: flex-start; }
+      .footer-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .main-nav { position: absolute; inset-inline: 0; top: 100%; background: #ffffff; border-bottom: 1px solid var(--border); flex-direction: column; align-items: flex-start; padding: 0.75rem 1.25rem 1rem; display: none; }
+      .main-nav.open { display: flex; }
+      .main-nav ul { flex-direction: column; gap: 0.75rem; }
+      .nav-cta { width: 100%; }
+      .nav-cta .btn { width: 100%; justify-content: center; }
+      .nav-toggle { display: block; }
+      .region-grid, .impact-grid, .support-grid { grid-template-columns: minmax(0, 1fr); }
+      .footer-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo-block">
+        <div class="logo-symbol" aria-hidden="true">BC</div>
+        <div>
+          <div class="logo-text-main">Brothers of Charity Services Ireland</div>
+          <div class="logo-text-sub">Supporting people with intellectual disabilities</div>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#regions">Services &amp; Regions</a></li>
+          <li><a href="#stories">Stories &amp; News</a></li>
+          <li><a href="#support">Support Us</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a class="btn btn-outline" href="#resources">For families</a>
+          <a class="btn btn-primary" href="#support">Donate</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Inclusive, person-centred support</div>
+          <h1 id="hero-title">Supporting people with intellectual disabilities to live full, valued lives.</h1>
+          <p class="lead">Brothers of Charity Services Ireland works alongside people with disabilities and their families, across Ireland, to promote dignity, choice and inclusion in everyday life.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#support">Support our work</a>
+            <a class="btn btn-outline" href="#resources">Information for families</a>
+          </div>
+          <p class="hero-note">We partner with communities, health services and national agencies to provide supports that are responsive, respectful and person-led.</p>
+        </div>
+
+        <aside class="hero-card" aria-label="Key information">
+          <span class="badge">Quick links</span>
+          <h2>How can we help you today?</h2>
+          <ul class="hero-card-list">
+            <li><a href="#resources">Irish ASD resources and links</a></li>
+            <li><a href="#stories">Latest news &amp; updates</a></li>
+            <li><a href="#regions">Find your local Brothers of Charity Services</a></li>
+            <li><a href="#support">Volunteer, work with us or donate</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container two-column">
+        <div>
+          <div class="section-heading">
+            <h2 id="about-heading">About Brothers of Charity Services Ireland</h2>
+          </div>
+          <p>Brothers of Charity Services Ireland is a national organisation that provides supports to people with intellectual disabilities and their families across the country.</p>
+          <p>Inspired by our ethos, we strive to promote dignity, respect and equal citizenship for every person we support.</p>
+          <p><a href="#">Learn more about our history, ethos and organisational structure</a></p>
+        </div>
+
+        <div class="card">
+          <h3>Our mission</h3>
+          <p>We are an inclusive, progressive organisation committed to the people we support and their right to lead full and valued lives as equal citizens.</p>
+          <p>We work in partnership with individuals, families, communities and statutory bodies to create supports that are led by the person’s own goals and choices.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Regions / Services -->
+    <section id="regions" aria-labelledby="regions-heading">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="regions-heading">Services &amp; regions</h2>
+          <p>We provide a range of community-based supports across Ireland. Use the links below to visit your local Brothers of Charity Services.</p>
+        </div>
+
+        <div class="region-grid">
+          <article class="region-card">
+            <div class="region-name">Clare</div>
+            <div class="region-tagline">Community and residential supports in Co. Clare.</div>
+            <a class="region-link" href="https://www.brothersofcharityclare.ie">Visit Clare services &rarr;</a>
+          </article>
+
+          <article class="region-card">
+            <div class="region-name">Galway</div>
+            <div class="region-tagline">Services for adults and children in the west of Ireland.</div>
+            <a class="region-link" href="#">Visit Galway services &rarr;</a>
+          </article>
+
+          <article class="region-card">
+            <div class="region-name">Limerick</div>
+            <div class="region-tagline">Individualised supports across Limerick city and county.</div>
+            <a class="region-link" href="#">Visit Limerick services &rarr;</a>
+          </article>
+
+          <article class="region-card">
+            <div class="region-name">Roscommon</div>
+            <div class="region-tagline">Person-centred supports throughout Co. Roscommon.</div>
+            <a class="region-link" href="#">Visit Roscommon services &rarr;</a>
+          </article>
+
+          <article class="region-card">
+            <div class="region-name">South East</div>
+            <div class="region-tagline">Supports across the south-eastern region.</div>
+            <a class="region-link" href="#">Visit South East services &rarr;</a>
+          </article>
+
+          <article class="region-card">
+            <div class="region-name">Southern</div>
+            <div class="region-tagline">Services in Cork, Kerry and surrounding areas.</div>
+            <a class="region-link" href="https://southern-services.ie">Visit Southern services &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact -->
+    <section aria-labelledby="impact-heading">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="impact-heading">Our work at a glance</h2>
+          <p>Replace these sample figures with your latest data to quickly show the scale and reach of Brothers of Charity Services Ireland.</p>
+        </div>
+
+        <div class="impact-grid">
+          <div class="impact-item">
+            <div class="impact-number">X,000+</div>
+            <div class="impact-label">People supported across Ireland</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-number">X,000+</div>
+            <div class="impact-label">Staff and volunteers</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-number">X</div>
+            <div class="impact-label">Service regions nationwide</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stories & News -->
+    <section id="stories" aria-labelledby="stories-heading">
+      <div class="container stories-grid">
+        <article class="story-card">
+          <div class="story-tag">Story</div>
+          <h2 id="stories-heading" class="story-title">“My own home, my own choices”</h2>
+          <p class="story-meta">A person’s story of moving to community living</p>
+          <p>Use this space to share a short, real story from someone who is supported by Brothers of Charity Services, or from a family member.</p>
+          <p>Stories help people understand why your work matters and how community-based, person-centred supports can change lives.</p>
+          <p><a href="#">Read more stories &rarr;</a></p>
+        </article>
+
+        <aside aria-label="Latest news and resources">
+          <div class="section-heading" style="margin-bottom: 0.75rem;">
+            <h2 style="font-size: 1.25rem; margin: 0;">News &amp; key resources</h2>
+          </div>
+          <ul class="news-list">
+            <li>
+              <a href="#">Brothers of Charity Strategy 2024</a>
+              <span class="news-meta">Read our current national strategic plan.</span>
+            </li>
+            <li>
+              <a href="#" id="resources">Irish ASD resources &amp; links</a>
+              <span class="news-meta">Information, supports and services for autistic people and families.</span>
+            </li>
+            <li>
+              <a href="#">Assisted Decision-Making (Capacity) Act</a>
+              <span class="news-meta">How we support the rights of people to make their own decisions.</span>
+            </li>
+            <li>
+              <a href="#">View publications and annual reports</a>
+              <span class="news-meta">Download annual reports and other publications.</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Support -->
+    <section id="support" aria-labelledby="support-heading">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="support-heading">Support our work</h2>
+          <p>There are many ways to support Brothers of Charity Services Ireland – from donating, to volunteering, to joining our teams around the country.</p>
+        </div>
+
+        <div class="support-grid">
+          <article class="support-card">
+            <h3>Donate</h3>
+            <p>Financial support helps us continue to provide flexible, person-centred services and to respond to new needs in our communities.</p>
+            <a class="btn btn-primary" href="#">Make a donation</a>
+          </article>
+
+          <article class="support-card">
+            <h3>Volunteer</h3>
+            <p>Volunteers contribute time, skills and friendship in many different ways, from social activities to advocacy and inclusion projects.</p>
+            <a class="btn btn-outline" href="#">Find volunteer opportunities</a>
+          </article>
+
+          <article class="support-card">
+            <h3>Work with us</h3>
+            <p>Join our teams across Ireland and help to deliver high-quality supports with and for people with intellectual disabilities.</p>
+            <a class="btn btn-outline" href="#">View current vacancies</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Brothers of Charity Services Ireland CLG</div>
+          <p class="footer-sub">Kilcornan House, Clarinbridge, Co. Galway, Ireland.<br />Tel: 091 721 510</p>
+          <p class="footer-sub">We are a national organisation providing supports to people with intellectual disabilities and their families throughout Ireland.</p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Key links</div>
+          <ul class="footer-links">
+            <li><a href="#">Data Protection</a></li>
+            <li><a href="#">Freedom of Information</a></li>
+            <li><a href="#">Safeguarding</a></li>
+            <li><a href="#">Advocacy</a></li>
+            <li><a href="#">Research</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Policies &amp; information</div>
+          <ul class="footer-links">
+            <li><a href="#">Privacy statement</a></li>
+            <li><a href="#">Cookie notice</a></li>
+            <li><a href="#">Make a complaint</a></li>
+            <li><a href="#">Contact national office</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Company Registration No: 344780 &middot; Registered in Dublin, Ireland</span>
+        <span>&copy; Brothers of Charity Services Ireland</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple accessible mobile nav toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const mainNav = document.querySelector(".main-nav");
+    if (navToggle && mainNav) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = mainNav.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
+  </script>
+</body>
+</html>
